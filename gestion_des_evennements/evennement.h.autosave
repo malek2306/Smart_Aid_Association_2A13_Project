@@ -1,0 +1,43 @@
+#ifndef EVENNEMENT_H
+#define EVENNEMENT_H
+#include<QString>
+#include <QSqlQuery>
+#include <QSqlQueryModel>
+#include <QDate>
+
+class evennement
+{
+    QString libelle,lieu,type;
+    int id_event;
+    QDate datee;
+
+
+public:
+    evennement(); //constructeur
+    evennement(int,QString,QString,QString,QDate);
+
+    int Get_id(){return id_event;}
+    QString Get_libelle(){return libelle;}
+    QString Get_lieu(){return lieu;}
+    QString Get_type(){return type;}
+    QDate get_date(){return datee ; }
+
+
+    void Set_id(int id_event){this->id_event=id_event;}
+    void Set_libelle(QString libelle){this->libelle=libelle;}
+    void Set_lieu(QString lieu){this->lieu=lieu;}
+    void Set_type(QString type){this->type=type;}
+    void Set_date(QDate datee){this->datee=datee;}
+
+
+    bool ajouter();                //ajouter
+    QSqlQueryModel * afficher();  //bsh naffichi fi interface qt
+    bool supprimer(int);          // fama int khtr bsh nfass5o bl id ahna wl id hoa int
+    evennement SelectModif(int);
+    bool Modifer(int);             //modifier
+
+
+
+
+};
+#endif // EVENNEMENT_H
